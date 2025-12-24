@@ -9,15 +9,15 @@ export const HeroSection = () => {
       {/* Background layers */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(43_74%_49%/0.08)_0%,_transparent_70%)]" />
-      
+
       {/* Subtle animated gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[100px] animate-pulse-slow" />
       <div
         className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-primary/3 blur-[80px] animate-pulse-slow"
         style={{ animationDelay: '1s' }}
       />
-      
-      {/* Decorative lines */}
+
+      {/* Decorative center lines */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-t from-transparent via-primary/30 to-transparent" />
 
@@ -48,26 +48,49 @@ export const HeroSection = () => {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
-          <Button variant="gold" size="xl" asChild className="animate-glow">
-            <a href="#pre-order">Pre-Order Now</a>
+        <div
+          className="
+            flex flex-col gap-4
+            md:flex-row
+            md:justify-start
+            md:pl-20
+            animate-fade-in-delay-3
+          "
+        >
+          {/* Pre-Order */}
+          <Button
+            variant="gold"
+            size="xl"
+            asChild
+            className="animate-glow w-full md:w-auto"
+          >
+            <a href="#pre-order" className="text-center">
+              Pre-Order Now
+            </a>
           </Button>
 
-          <Button variant="goldOutline" size="xl" asChild className="group">
+          {/* WhatsApp */}
+          <Button
+            variant="goldOutline"
+            size="xl"
+            asChild
+            className="group w-full md:w-auto"
+          >
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi! I'm interested in pre-ordering from Veloura Lifestyle.`}
               target="_blank"
               rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
               Contact on WhatsApp
             </a>
           </Button>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+      {/* Scroll indicator (DESKTOP ONLY) */}
+      <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
         <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex items-start justify-center p-1">
           <div className="w-1.5 h-3 bg-primary rounded-full animate-bounce" />
         </div>
